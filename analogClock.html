@@ -120,9 +120,13 @@
 				minuteIncrement = 360 / 60,
 				secondIncrement = 360 / 60;
 
+			secondsFraction = (seconds % 6 === 0) ? seconds : seconds - (seconds % 6);
+
 			var hourHandAngle = hours * hourIncrement,
-				minuteHandAngle = minutes * minuteIncrement,
+				minuteHandAngle = (minutes * minuteIncrement) + (secondsFraction / 60),
 				secondHandAngle = seconds * secondIncrement;
+
+			console.log(minuteHandAngle);
 
 			var hourHand = document.getElementById('hour-hand'),
 				minuteHand = document.getElementById('minute-hand'),
